@@ -1,7 +1,6 @@
 {
     "name": "thoughtco/statamic-plausible-analytics",
     "description": "Get your Plausible Analytics data right from your Statamic dashboard.",
-    "version": "1.2.1",
     "autoload": {
         "psr-4": {
             "Thoughtco\\Plausible\\": "src"
