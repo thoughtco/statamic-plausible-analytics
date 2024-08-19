@@ -1,6 +1,6 @@
 <?php
 
-namespace Jackabox\Plausible\Http\Traits;
+namespace Thoughtco\Plausible\Http\Traits;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;

@@ -1,10 +1,10 @@
 {
-    "name": "jackabox/statamic-plausible-analytics",
+    "name": "thoughtco/statamic-plausible-analytics",
     "description": "Get your Plausible Analytics data right from your Statamic dashboard.",
     "version": "1.2.1",
     "autoload": {
         "psr-4": {
-            "Jackabox\\Plausible\\": "src"
+            "Thoughtco\\Plausible\\": "src"
         }
     },
     "authors": [
@@ -13,11 +13,14 @@
             "email": "hi@jackwhiting.co.uk",
             "homepage": "https://jackwhiting.co.uk",
             "role": "Developer"
+        },
+        {
+            "name": "Thought Collective",
+            "email": "hello@thoughtcollective.com",
+            "homepage": "https://www.thoughtcollective.com",
+            "role": "Developer"
         }
     ],
-    "support": {
-        "email": "hi@jackwhiting.co.uk"
-    },
     "extra": {
         "statamic": {
             "name": "Plausible Analytics",
@@ -25,7 +28,7 @@
         },
         "laravel": {
             "providers": [
-                "Jackabox\\Plausible\\PlausibleServiceProvider"
+                "Thoughtco\\Plausible\\PlausibleServiceProvider"
             ]
         }
     },

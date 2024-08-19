@@ -1,6 +1,6 @@
 <?php
 
-namespace Jackabox\Plausible\Http\Controllers;
+namespace Thoughtco\Plausible\Http\Controllers;
 
 use Statamic\Http\Controllers\CP\CpController;
 

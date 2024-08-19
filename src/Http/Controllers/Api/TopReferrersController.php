@@ -1,9 +1,9 @@
 <?php
 
-namespace Jackabox\Plausible\Http\Controllers\Api;
+namespace Thoughtco\Plausible\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use Jackabox\Plausible\Http\Traits\FetchResultsTrait;
+use Thoughtco\Plausible\Http\Traits\FetchResultsTrait;
 use Statamic\Http\Controllers\CP\CpController;
 
 class TopReferrersController extends CpController

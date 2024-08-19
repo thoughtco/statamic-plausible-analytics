@@ -1,6 +1,6 @@
 <?php
 
-namespace Jackabox\Plausible\Widgets;
+namespace Thoughtco\Plausible\Widgets;
 
 use Statamic\Widgets\Widget;
 

@@ -1,7 +1,7 @@
 <?php
 
-use Jackabox\Plausible\Http\Controllers\Api;
-use Jackabox\Plausible\Http\Controllers\DashboardController;
+use Thoughtco\Plausible\Http\Controllers\Api;
+use Thoughtco\Plausible\Http\Controllers\DashboardController;
 
 Route::get('/analytics', [DashboardController::class, 'index'])->name('plausible.index');
 

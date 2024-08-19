@@ -1,6 +1,6 @@
 <?php
 
-namespace Jackabox\Plausible;
+namespace Thoughtco\Plausible;
 
 use Illuminate\Support\Facades\Artisan;
 use Statamic\Facades\CP\Nav;
