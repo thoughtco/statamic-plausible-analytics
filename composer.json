@@ -30,7 +30,8 @@
         }
     },
     "require": {
-        "guzzlehttp/guzzle": "^7.2"
+        "guzzlehttp/guzzle": "^7.2",
+        "laravel/pint": "^1.17"
     },
     "config": {
         "optimize-autoloader": true,

@@ -12,7 +12,7 @@ class TimeseriesController extends CpController
 
     public function __construct()
     {
-        $this->key = 'plausible_timeseries_' . config('plausible.default_period');
+        $this->key = 'plausible_timeseries_'.config('plausible.default_period');
     }
 
     public function fetch(Request $request)
@@ -22,7 +22,7 @@ class TimeseriesController extends CpController
         $this->period = $this->matchPeriodToApi($period);
 
         // Set the key for control of cache
-        $this->key = 'plausible_timeseries_' . $this->period;
+        $this->key = 'plausible_timeseries_'.$this->period;
 
         // If we have cache, get results
         if (config('plausible.cache_enabled')) {
@@ -36,7 +36,7 @@ class TimeseriesController extends CpController
     public function handleResults(): array
     {
         $url = sprintf(
-            "%s/api/v1/stats/timeseries?period=%s",
+            '%s/api/v1/stats/timeseries?period=%s',
             config('plausible.domain'),
             $this->period
         );
@@ -54,7 +54,7 @@ class TimeseriesController extends CpController
 
         $results = [
             'labels' => $labels,
-            'series' => $series
+            'series' => $series,
         ];
 
         $this->cacheResults($results);

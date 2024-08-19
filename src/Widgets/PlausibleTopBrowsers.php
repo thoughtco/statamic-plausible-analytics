@@ -14,7 +14,7 @@ class PlausibleTopBrowsers extends Widget
     public function html()
     {
         return view('plausible::widgets.plausible-top-browsers', [
-            'period' => $this->config('period', '7d')
+            'period' => $this->config('period', '7d'),
         ]);
     }
 }

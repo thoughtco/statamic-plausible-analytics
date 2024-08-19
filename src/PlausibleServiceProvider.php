@@ -12,11 +12,11 @@ class PlausibleServiceProvider extends AddonServiceProvider
     protected $publishAfterInstall = false;
 
     protected $routes = [
-        'cp' => __DIR__ . '/../routes/cp.php'
+        'cp' => __DIR__.'/../routes/cp.php',
     ];
 
     protected $scripts = [
-        __DIR__ . '/../dist/js/statamic-plausible.js'
+        __DIR__.'/../dist/js/statamic-plausible.js',
     ];
 
     protected $widgets = [
@@ -32,13 +32,13 @@ class PlausibleServiceProvider extends AddonServiceProvider
 
         $this->createNavigation();
 
-        $this->loadViewsFrom(__DIR__ . '/../resources/views/', 'plausible');
-        $this->mergeConfigFrom(__DIR__ . '/../config/plausible.php', 'plausible');
+        $this->loadViewsFrom(__DIR__.'/../resources/views/', 'plausible');
+        $this->mergeConfigFrom(__DIR__.'/../config/plausible.php', 'plausible');
         $this->publishAssets();
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/plausible.php' => config_path('plausible.php'),
+                __DIR__.'/../config/plausible.php' => config_path('plausible.php'),
             ], 'plausible-config');
         }
     }

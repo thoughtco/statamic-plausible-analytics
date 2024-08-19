@@ -9,13 +9,13 @@ class DashboardController extends CpController
     public function index()
     {
         if (! config('plausible.key') || ! config('plausible.site')) {
-            return view ('plausible::no-setup', [
-                'title' => 'Analytics'
+            return view('plausible::no-setup', [
+                'title' => 'Analytics',
             ]);
         }
 
         return view('plausible::dashboard', [
-            'title' => 'Analytics'
+            'title' => 'Analytics',
         ]);
     }
 }

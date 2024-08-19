@@ -14,7 +14,7 @@ class PlausibleTopPages extends Widget
     public function html()
     {
         return view('plausible::widgets.plausible-top-pages', [
-            'period' => $this->config('period', '7d')
+            'period' => $this->config('period', '7d'),
         ]);
     }
 }

@@ -17,7 +17,7 @@ class TopReferrersController extends CpController
         $this->period = $this->matchPeriodToApi($period);
 
         // Set the key for control of cache
-        $this->key = 'plausible_top_referrers_' . $this->period;
+        $this->key = 'plausible_top_referrers_'.$this->period;
 
         // If we have cache, get results
         if (config('plausible.cache_enabled')) {
@@ -31,7 +31,7 @@ class TopReferrersController extends CpController
     public function handleResults()
     {
         $url = sprintf(
-            "%s/api/v1/stats/breakdown?period=%s&limit=%d&property=visit:source&metrics=visitors",
+            '%s/api/v1/stats/breakdown?period=%s&limit=%d&property=visit:source&metrics=visitors',
             config('plausible.domain'),
             $this->period,
             config('plausible.results_limit', 5)

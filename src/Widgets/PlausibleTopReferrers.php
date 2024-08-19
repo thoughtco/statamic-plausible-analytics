@@ -14,7 +14,7 @@ class PlausibleTopReferrers extends Widget
     public function html()
     {
         return view('plausible::widgets.plausible-top-referrers', [
-            'period' => $this->config('period', '7d')
+            'period' => $this->config('period', '7d'),
         ]);
     }
 }

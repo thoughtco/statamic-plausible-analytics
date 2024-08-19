@@ -17,7 +17,7 @@ class TopBrowsersController extends CpController
         $this->period = $this->matchPeriodToApi($period);
 
         // Set the key for control of cache
-        $this->key = 'plausible_top_browsers_' . $this->period;
+        $this->key = 'plausible_top_browsers_'.$this->period;
 
         // If we have cache, get results
         if (config('plausible.cache_enabled')) {
@@ -31,7 +31,7 @@ class TopBrowsersController extends CpController
     public function handleResults()
     {
         $url = sprintf(
-            "%s/v1/stats/breakdown?period=%s&limit=%d&property=visit:browser&metrics=visitors",
+            '%s/v1/stats/breakdown?period=%s&limit=%d&property=visit:browser&metrics=visitors',
             config('plausible.domain'),
             $this->period,
             config('plausible.results_limit', 5)
