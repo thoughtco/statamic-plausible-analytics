@@ -1,6 +1,6 @@
 <?php
 
-namespace Jackabox\Plausible\Http\Traits;
+namespace Thoughtco\Plausible\Http\Traits;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Http;
 trait FetchResultsTrait
 {
     public $key;
+
     public $period;
 
     public function prepareUrl(string $url): string
@@ -24,8 +25,9 @@ trait FetchResultsTrait
 
         $params['site_id'] = config('plausible.site');
         $parsed_url['query'] = http_build_query($params);
+        $port = isset($parsed_url['port']) ? ':'.$parsed_url['port'] : '';
 
-        return $parsed_url['scheme'] . '://' . $parsed_url['host'] . $parsed_url['path'] . '?' . $parsed_url['query'];
+        return $parsed_url['scheme'].'://'.$parsed_url['host'].$port.$parsed_url['path'].'?'.$parsed_url['query'];
     }
 
     public function fetchQuery(string $url)
@@ -46,12 +48,14 @@ trait FetchResultsTrait
     {
         if ($period === 'day') {
             $date = Carbon::now()->format('Y-m-d');
-            return 'day&date=' . $date;
+
+            return 'day&date='.$date;
         }
 
         if ($period === 'yesterday') {
             $date = Carbon::now()->subDays(1)->format('Y-m-d');
-            return 'day&date=' . $date;
+
+            return 'day&date='.$date;
         }
 
         return $period;
@@ -64,7 +68,7 @@ trait FetchResultsTrait
 
     public function getCachedResults()
     {
-        return Cache::get($this->key, function() {
+        return Cache::get($this->key, function () {
             return $this->handleResults();
         });
     }

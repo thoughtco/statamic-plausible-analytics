@@ -1,9 +1,9 @@
 <?php
 
-namespace Jackabox\Plausible\Http\Controllers\Api;
+namespace Thoughtco\Plausible\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use Jackabox\Plausible\Http\Traits\FetchResultsTrait;
+use Thoughtco\Plausible\Http\Traits\FetchResultsTrait;
 use Statamic\Http\Controllers\CP\CpController;
 
 class AggregatesController extends CpController
@@ -12,7 +12,7 @@ class AggregatesController extends CpController
 
     public function __construct()
     {
-        $this->key = 'plausible_aggregates_' . config('plausible.default_period');
+        $this->key = 'plausible_aggregates_'.config('plausible.default_period');
     }
 
     public function fetch(Request $request)
@@ -22,7 +22,7 @@ class AggregatesController extends CpController
         $this->period = $this->matchPeriodToApi($period);
 
         // Set the key for control of cache
-        $this->key = 'plausible_aggregates_' . $this->period;
+        $this->key = 'plausible_aggregates_'.$this->period;
 
         // If we have cache, get results
         if (config('plausible.cache_enabled')) {
@@ -36,7 +36,7 @@ class AggregatesController extends CpController
     public function handleResults()
     {
         $url = sprintf(
-            "%s/api/v1/stats/aggregate?period=%s&metrics=visitors,pageviews,bounce_rate,visit_duration",
+            '%s/api/v1/stats/aggregate?period=%s&metrics=visitors,pageviews,bounce_rate,visit_duration',
             config('plausible.domain'),
             $this->period
         );

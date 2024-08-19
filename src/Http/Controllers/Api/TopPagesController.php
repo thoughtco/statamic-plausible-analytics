@@ -1,9 +1,9 @@
 <?php
 
-namespace Jackabox\Plausible\Http\Controllers\Api;
+namespace Thoughtco\Plausible\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use Jackabox\Plausible\Http\Traits\FetchResultsTrait;
+use Thoughtco\Plausible\Http\Traits\FetchResultsTrait;
 use Statamic\Http\Controllers\CP\CpController;
 
 class TopPagesController extends CpController
@@ -17,7 +17,7 @@ class TopPagesController extends CpController
         $this->period = $this->matchPeriodToApi($period);
 
         // Set the key for control of cache
-        $this->key = 'plausible_top_pages_' . $this->period;
+        $this->key = 'plausible_top_pages_'.$this->period;
 
         // If we have cache, get results
         if (config('plausible.cache_enabled')) {
@@ -31,7 +31,7 @@ class TopPagesController extends CpController
     public function handleResults()
     {
         $url = sprintf(
-            "%s/api/v1/stats/breakdown?period=%s&property=event:page&limit=%d",
+            '%s/api/v1/stats/breakdown?period=%s&property=event:page&limit=%d',
             config('plausible.domain'),
             $this->period,
             config('plausible.results_limit', 5)
