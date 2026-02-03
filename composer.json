@@ -37,6 +37,7 @@
     },
     "require": {
         "guzzlehttp/guzzle": "^7.2",
+        "pixelfear/composer-dist-plugin": "^0.1.6",
         "statamic/cms": "^6.0"
     },
     "config": {
