@@ -1,14 +1,16 @@
 {
     "private": true,
     "scripts": {
-      "dev": "vite build --watch",
-      "build": "vite build"
+        "dev": "vite build --watch",
+        "build": "vite build"
     },
     "devDependencies": {
-      "laravel-vite-plugin": "^1.2.0",
-      "vite": "^6.3.4"
+        "laravel-vite-plugin": "^1.2.0",
+        "vite": "^6.3.4"
     },
     "dependencies": {
-        "@statamic/cms": "file:./vendor/statamic/cms/resources/dist-package"
+        "@statamic/cms": "file:./vendor/statamic/cms/resources/dist-package",
+        "@vueuse/core": "^14.2.0",
+        "vue3-charts": "^1.1.33"
     }
 }
