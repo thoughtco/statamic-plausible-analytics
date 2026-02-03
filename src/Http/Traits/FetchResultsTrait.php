@@ -36,7 +36,7 @@ trait FetchResultsTrait
             ->get($url);
 
         if (! $http->ok()) {
-            return 'Not working';
+            return [];
         }
 
         $data = $http->json();
