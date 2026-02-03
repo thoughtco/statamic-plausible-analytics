@@ -3,8 +3,9 @@
 namespace Thoughtco\Plausible\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use Thoughtco\Plausible\Http\Traits\FetchResultsTrait;
+use Illuminate\Support\Str;
 use Statamic\Http\Controllers\CP\CpController;
+use Thoughtco\Plausible\Http\Traits\FetchResultsTrait;
 
 class TimeseriesController extends CpController
 {
@@ -44,17 +45,24 @@ class TimeseriesController extends CpController
         $url = $this->prepareUrl($url);
         $data = $this->fetchQuery($url);
 
-        $labels = [];
-        $series = [];
-
-        foreach ($data as $item) {
-            $labels[] = $item['date'];
-            $series[] = $item['visitors'];
-        }
+        $data = match (Str::before($this->period, '&')) {
+            'day', 'yesterday' => collect($data)->map(function ($item) {
+                return [
+                    'date' => Str::of($item['date'])->after(' ')->beforeLast(':'),
+                    'visitors' => $item['visitors'] ?? 0,
+                ];
+            })->all(),
+            '30d' => collect($data)->map(function ($item) {
+                return [
+                    'date' => Str::of($item['date'])->after('-')->beforeLast(' '),
+                    'visitors' => $item['visitors'] ?? 0,
+                ];
+            })->all(),
+            default => $data,
+        };
 
         $results = [
-            'labels' => $labels,
-            'series' => $series,
+            'data' => $data,
         ];
 
         $this->cacheResults($results);

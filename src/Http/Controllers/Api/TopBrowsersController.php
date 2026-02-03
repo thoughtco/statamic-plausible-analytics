@@ -3,8 +3,8 @@
 namespace Thoughtco\Plausible\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use Thoughtco\Plausible\Http\Traits\FetchResultsTrait;
 use Statamic\Http\Controllers\CP\CpController;
+use Thoughtco\Plausible\Http\Traits\FetchResultsTrait;
 
 class TopBrowsersController extends CpController
 {
@@ -21,7 +21,7 @@ class TopBrowsersController extends CpController
 
         // If we have cache, get results
         if (config('plausible.cache_enabled')) {
-            return $this->getCachedResults();
+            // return $this->getCachedResults();
         }
 
         // Return all others if not.
@@ -31,7 +31,7 @@ class TopBrowsersController extends CpController
     public function handleResults()
     {
         $url = sprintf(
-            '%s/v1/stats/breakdown?period=%s&limit=%d&property=visit:browser&metrics=visitors',
+            '%s/api/v1/stats/breakdown?period=%s&property=visit:browser&limit=%d',
             config('plausible.domain'),
             $this->period,
             config('plausible.results_limit', 5)

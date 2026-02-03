@@ -15,15 +15,19 @@ class PlausibleServiceProvider extends AddonServiceProvider
         'cp' => __DIR__.'/../routes/cp.php',
     ];
 
-    protected $scripts = [
-        __DIR__.'/../dist/js/statamic-plausible.js',
-    ];
-
     protected $widgets = [
         Widgets\PlausibleTopPages::class,
         Widgets\PlausibleTopBrowsers::class,
         Widgets\PlausibleTopReferrers::class,
         Widgets\PlausibleVisitorOverview::class,
+    ];
+
+    protected $vite = [
+        'publicDirectory' => 'dist',
+        'hotFile' => 'vendor/statamic-plausible-analytics/hot',
+        'input' => [
+            'resources/js/cp.js',
+        ],
     ];
 
     public function boot()
@@ -54,7 +58,7 @@ class PlausibleServiceProvider extends AddonServiceProvider
 
         Nav::extend(function ($nav) {
             $nav->create('Analytics')
-                ->icon('charts')
+                ->icon('chart-monitoring-indicator')
                 ->section('Tools')
                 ->route('plausible.index');
         });
