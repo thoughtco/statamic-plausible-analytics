@@ -4,8 +4,8 @@ namespace Thoughtco\Plausible\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Thoughtco\Plausible\Http\Traits\FetchResultsTrait;
 use Statamic\Http\Controllers\CP\CpController;
+use Thoughtco\Plausible\Http\Traits\FetchResultsTrait;
 
 class TimeseriesController extends CpController
 {

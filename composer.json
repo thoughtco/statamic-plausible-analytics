@@ -21,6 +21,10 @@
         }
     ],
     "extra": {
+        "download-dist": {
+            "path": "dist",
+            "url": "https://github.com/thoughtco/statamic-plausible-analytics/releases/download/{$version}/dist.tar.gz"
+        },
         "statamic": {
             "name": "Plausible Analytics",
             "description": "Get your Plausible Analytics data right from your Statamic dashboard"
@@ -33,7 +37,6 @@
     },
     "require": {
         "guzzlehttp/guzzle": "^7.2",
-        "laravel/pint": "^1.17",
         "statamic/cms": "^6.0"
     },
     "config": {
@@ -43,5 +46,8 @@
         "allow-plugins": {
             "pixelfear/composer-dist-plugin": true
         }
+    },
+    "require-dev": {
+        "laravel/pint": "^1.27"
     }
 }

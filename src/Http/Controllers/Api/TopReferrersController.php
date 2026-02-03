@@ -3,8 +3,8 @@
 namespace Thoughtco\Plausible\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use Thoughtco\Plausible\Http\Traits\FetchResultsTrait;
 use Statamic\Http\Controllers\CP\CpController;
+use Thoughtco\Plausible\Http\Traits\FetchResultsTrait;
 
 class TopReferrersController extends CpController
 {
